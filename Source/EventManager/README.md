@@ -14,10 +14,17 @@ firing the event with the `EventManager`.
 public void SomeFunction(){
     EventManager.FireEvent(new DebugEventInfo());
 }
+<<<<<<< HEAD
 ```
 
 ### Starting/Stopping to listen
 ```csharp
+=======
+
+### Starting/Stopping to listen
+```csharp
+
+>>>>>>> master
 public void Start()
 {
     // You can do this anywhere.

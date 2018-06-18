@@ -11,27 +11,22 @@ firing the event with the `EventManager`.
 
 ### Firing the event
 ```csharp
-public void SomeFunction(){
+public void SomeFunction()
+{
     EventManager.FireEvent(new DebugEventInfo());
 }
-<<<<<<< HEAD
 ```
 
 ### Starting/Stopping to listen
 ```csharp
-=======
-
-### Starting/Stopping to listen
-```csharp
-
->>>>>>> master
+// Assuming we are in a MonoBehaviour
 public void Start()
 {
     // You can do this anywhere.
     EventManager.AddListener<DebugEventInfo>(OnDebugEventInfo);
 }
 
-// This function can be called as you see fit but needs to take a single parameter of type `DebugEventInfo`.
+// This function can be named as you see fit but needs to take a single parameter of type `DebugEventInfo`.
 public void OnDebugEventInfo(DebugEventInfo debugEventInfo)
 {
     Debug.Log("Received debugEventInfo.");

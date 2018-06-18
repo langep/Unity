@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 
 
-public abstract class EventManager {
+public static class EventManager {
 
-    private static Dictionary<Type, EventManager> managers;
+    private static Dictionary<Type, _EventManager> managers;
 
     public static void AddListener<T>(Action<T> listener) where T : EventInfo
     {
@@ -12,7 +12,7 @@ public abstract class EventManager {
 
         if (managers == null)
         {
-            managers = new Dictionary<Type, EventManager>();
+            managers = new Dictionary<Type, _EventManager>();
         }
 
         if (managers.ContainsKey(eventType) == false || managers[eventType] == null)
@@ -44,8 +44,8 @@ public abstract class EventManager {
         ((_EventManager<T>)managers[eventType]).Fire(eventInfo);
     }
         
-
-    private class _EventManager<T> : EventManager where T : EventInfo
+    private abstract class _EventManager { };
+    private class _EventManager<T> : _EventManager where T : EventInfo
     {
         private event Action<T> listeners;
 
@@ -65,5 +65,3 @@ public abstract class EventManager {
         }
     }
 }
-
-
